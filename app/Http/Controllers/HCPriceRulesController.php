@@ -1,7 +1,10 @@
 <?php namespace App\Http\Controllers;
 
+use App\models\HCGoods;
+use App\models\HCGoodsCategories;
 use App\models\HCPriceRules;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 
 class HCPriceRulesController extends Controller {
 
@@ -13,7 +16,7 @@ class HCPriceRulesController extends Controller {
 	 */
 	public function index()
 	{
-		//
+        return view('rulesList');
 	}
 
 	/**
@@ -24,7 +27,15 @@ class HCPriceRulesController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$config['good']= HCGoods::pluck('id')->toArray();
+        $config['category']= HCGoodsCategories::pluck('name','id')->toArray();
+
+        $result = DB::select("SHOW COLUMNS FROM `hc_price_rules` LIKE 'type';");
+        $regex = "/'(.*?)'/";
+        preg_match_all( $regex , $result[0]->Type, $enum_array );
+        $config['type'] = $enum_array[1];
+
+		return view('rulesForm',$config);
 	}
 
 	/**
@@ -35,9 +46,9 @@ class HCPriceRulesController extends Controller {
 	 */
 	public function store()
 	{
-        //
+       //
     }
-	
+
 
 	/**
 	 * Display the specified resource.
