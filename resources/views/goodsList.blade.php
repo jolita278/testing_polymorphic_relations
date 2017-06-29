@@ -18,7 +18,6 @@
         <table class="table table-hover">
 
             @if(sizeof($list)>0)
-{{dd($list)}}
                 <tbody>
                 @foreach ($list as $key => $record)
 
@@ -26,7 +25,7 @@
                         @foreach ($record as $key => $value)
 
 
-                            <td>{{$value}}</td>
+                            <td>{{$key}}</td>
 
                         @endforeach
 
