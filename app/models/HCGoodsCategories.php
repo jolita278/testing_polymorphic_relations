@@ -15,4 +15,9 @@ class HCGoodsCategories extends CoreModel
      * @var array
      */
     protected $fillable = ['id', 'name'];
+
+    public function rules()
+    {
+        return $this->morphMany(HCPriceRulesAffectedItems::class, 'rulable');
+    }
 }

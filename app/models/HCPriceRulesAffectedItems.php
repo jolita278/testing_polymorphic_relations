@@ -15,4 +15,11 @@ class HCPriceRulesAffectedItems extends CoreModel
      * @var array
      */
     protected $fillable = ['id', 'rule_id', 'rulable_type', 'rulable_id'];
+
+    public function goods()
+    {
+        return $this->morphToMany('App\models\HCGoods', 'rulable');
+    }
+
+
 }

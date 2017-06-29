@@ -4,17 +4,20 @@ namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class HCPriceRulesGoodsConn extends Model
+class HCGoodsCategoriesConn extends Model
 {
     /**
      * Table name
      * @var string
      */
-    protected $table = 'hc_price_rules_goods_conn';
+    protected $table = 'hc_goods_categories_conn';
+
 
     /**
      * Fields which will be manipulated
      * @var array
      */
-    protected $fillable = ['rule_id', 'good_id' ];
+    protected $fillable = ['good_id', 'category_id'];
+
+
 }
