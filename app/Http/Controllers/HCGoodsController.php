@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\models\HCGoods;
+use Illuminate\Support\Facades\Cache;
 use App\models\HCPriceRules;
 use App\models\HCPriceRulesAffectedItems;
 use Illuminate\Routing\Controller;
@@ -16,8 +17,13 @@ class HCGoodsController extends Controller
      */
     public function index()
     {
+        if (Cache::has('p-index'))
+            return view('goodsList', Cache::get('p-index'));
+
         $configuration = [];
         $configuration ['list'] = HCGoods::with(['rules','categories'])->get()->toArray();
+
+        Cache::put('p-index', $configuration, 1);
 
         return view('goodsList', $configuration);
     }
