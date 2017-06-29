@@ -14,10 +14,10 @@ class HCPriceRules extends CoreModel
      * Fields which will be manipulated
      * @var array
      */
-    protected $fillable = ['id', 'name', 'from', 'to', 'type', 'amount', 'gift_quantity'];
+    protected $fillable = ['id', 'name', 'from', 'to', 'type', 'amount'];
 
     /**
-     * Get all of the posts that are assigned this tag.
+     * Get all of the goods that are assigned this rule.
      */
     public function goods()
     {
@@ -25,7 +25,7 @@ class HCPriceRules extends CoreModel
     }
 
     /**
-     * Get all of the videos that are assigned this tag.
+     * Get all of the categories that are assigned this rule.
      */
     public function categories()
     {

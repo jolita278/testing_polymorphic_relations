@@ -20,4 +20,5 @@ class HCGoodsCategories extends CoreModel
     {
         return $this->morphMany(HCPriceRulesAffectedItems::class, 'rulable');
     }
+
 }

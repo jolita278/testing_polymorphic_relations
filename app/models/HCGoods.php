@@ -17,19 +17,19 @@ class HCGoods extends CoreModel
     protected $fillable = ['id', 'name'];
 
     /**
-     * Get all of the tags for the post.
+     * Get all of the rules for the good.
      */
     public function rules()
     {
-        return $this->morphMany(HCPriceRulesAffectedItems::class, 'rulable');
+        return $this->morphMany(HCPriceRulesAffectedItems::class, 'rulable')->with('rule');
     }
 
     /**
-     * Get all of the tags for the post.
+     * Get all of the categories for the good.
      */
     public function categories()
     {
-        return $this->belongsToMany(HCGoodsCategories::class, 'hc_goods_categories_conn', 'good_id', 'category_id')->with('rules');
+        return $this->morphMany(HCPriceRulesAffectedItems::class, 'rulable')->with('rule');
     }
 
 
