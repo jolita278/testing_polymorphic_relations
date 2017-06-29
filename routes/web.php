@@ -26,3 +26,7 @@ Route::group(['prefix' => 'rules'], function () {
         Route::delete('/', ['as' => 'app.rules.showDelete', 'uses' => 'HCPriceRulesController@destroy']);
     });
 });
+Route::group(['prefix' => 'goods'], function () {
+    Route::get('/', ['as' => 'app.goods.index', 'uses' => 'HCGoodsController@index']);
+
+});
