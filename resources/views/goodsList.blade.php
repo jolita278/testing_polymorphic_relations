@@ -13,16 +13,18 @@
 <div id="list">
     <div class="container">
 
-        <h2>Rules</h2>
+        <h2>Goods</h2>
 
         <table class="table table-hover">
 
             @if(sizeof($list)>0)
-
+{{dd($list)}}
                 <tbody>
                 @foreach ($list as $key => $record)
+
                     <tr>
                         @foreach ($record as $key => $value)
+
 
                             <td>{{$value}}</td>
 

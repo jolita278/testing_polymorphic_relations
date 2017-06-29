@@ -32,23 +32,15 @@
     {{ Form::label('amount', 'Amount')}}<br>
     {{Form::text('amount')}}
 
-    <h4>As gift: </h4>
-
-    {{ Form::label('rulable_id', 'Affected good')}}<br>
-    {{Form::select('rulable_id', $good, null, ['placeholder' => 'Please Select'])}}
-    <br>
-    <br>
-    {{ Form::label('gift_quantity', 'Gifts quantity')}}<br>
-    {{Form::text('gift_quantity')}}
     <br> <br>
     <h4>Affected: </h4>
 
-    {{ Form::label('rulable_id', 'Affected good')}}<br>
-    {{Form::select('rulable_id', $good, null, ['placeholder' => 'Please Select'])}}
+    {{ Form::label('a_goods', 'Affected good')}}<br>
+    {{Form::select('a_goods', $good, null, ['placeholder' => 'Please Select'])}}
     <br>
 
-    {{ Form::label('rulable_id', 'Affected category')}}<br>
-    {{Form::select('rulable_id', $category, null, ['placeholder' => 'Please Select'])}}
+    {{ Form::label('a_categories', 'Affected category')}}<br>
+    {{Form::select('a_categories', $category, null, ['placeholder' => 'Please Select'])}}
     <br><br>
 
     {{ Form::submit('Submit') }}
